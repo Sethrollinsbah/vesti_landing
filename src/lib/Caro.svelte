@@ -2,7 +2,6 @@
 	import * as Card from '$lib/components/ui/card/index.js';
 	import * as Tooltip from '$lib/components/ui/tooltip/index.js';
 
-	import * as Dialog from '$lib/components/ui/Dialog/index.js';
 	import * as Carousel from '$lib/components/ui/carousel/index.js';
 	import { Button } from './components/ui/button';
 	import { Fullscreen } from 'lucide-svelte';
