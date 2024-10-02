@@ -93,8 +93,7 @@
 										class:opacity-100={blur1}
 										class="absolute bottom-5 left-5 w-[80%] text-background transition-all delay-200 duration-500 ease-out"
 									>
-										Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui amet repudiandae
-										maxime vel doloribus explicabo asperiores, earum praesentium quod error est
+										{r.full}
 									</p>
 								</div>
 								<div class="absolute left-0 top-0 h-full w-full object-cover">
