@@ -268,7 +268,7 @@
 	<h1
 		class="mt-4 bg-gradient-to-tr from-muted-foreground to-accent bg-clip-text text-4xl text-transparent"
 	>
-		How it works
+		How we fixed online shopping
 	</h1>
 </section>
 <Caro></Caro>

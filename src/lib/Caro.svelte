@@ -5,6 +5,7 @@
 	import * as Carousel from '$lib/components/ui/carousel/index.js';
 	import { Button } from './components/ui/button';
 	import { Fullscreen } from 'lucide-svelte';
+	let blur0 = false;
 	let blur1 = false;
 	let steps = [
 		{
@@ -60,7 +61,8 @@
 								>
 								<Button
 									on:click={() => {
-										blur1 = !blur1;
+										if (i === 0) blur0 = !blur0;
+										if (i === 1) blur1 = !blur1;
 									}}
 									class="absolute bottom-2 right-2 z-10 translate-y-16 scale-0 opacity-0 transition-all duration-100 group-hover:translate-y-0 group-hover:scale-100 group-hover:opacity-100"
 									size="icon"
@@ -75,30 +77,57 @@
 										</Tooltip.Content>
 									</Tooltip.Root></Button
 								>
-								<div
-									class:backdrop-blur-lg={blur1}
-									class:bg-primary={blur1}
-									class:bg-opacity-60={blur1}
-									class:animate-in={blur1}
-									class:opacity-0={!blur1}
-									class:backdrop-blur-none={!blur1}
-									class="absolute left-0 top-0 z-[5] h-full w-full transition-all duration-300 ease-out"
-								>
-									<p
-										class:translate-y-12={!blur1}
-										class:translate-y-0={blur1}
-										class:scale-95={!blur1}
-										class:scale-100={blur1}
+								{#if i === 1}
+									<div
+										class:backdrop-blur-lg={blur1}
+										class:bg-primary={blur1}
+										class:bg-opacity-60={blur1}
+										class:animate-in={blur1}
 										class:opacity-0={!blur1}
-										class:opacity-100={blur1}
-										class="absolute bottom-5 left-5 w-[80%] text-background transition-all delay-200 duration-500 ease-out"
+										class:backdrop-blur-none={!blur1}
+										class="absolute left-0 top-0 z-[5] h-full w-full transition-all duration-300 ease-out"
 									>
-										{r.full}
-									</p>
-								</div>
-								<div class="absolute left-0 top-0 h-full w-full object-cover">
-									<img src={r.img} class="h-full object-cover" />
-								</div>
+										<p
+											class:translate-y-12={!blur1}
+											class:translate-y-0={blur1}
+											class:scale-95={!blur1}
+											class:scale-100={blur1}
+											class:opacity-0={!blur1}
+											class:opacity-100={blur1}
+											class="absolute bottom-5 left-5 w-[80%] text-background transition-all delay-200 duration-500 ease-out"
+										>
+											{r.full}
+										</p>
+									</div>
+									<div class="absolute left-0 top-0 h-full w-full object-cover">
+										<img src={r.img} class="h-full object-cover" />
+									</div>
+								{:else if i === 0}
+									<div
+										class:backdrop-blur-lg={blur0}
+										class:bg-primary={blur0}
+										class:bg-opacity-60={blur0}
+										class:animate-in={blur0}
+										class:opacity-0={!blur0}
+										class:backdrop-blur-none={!blur0}
+										class="absolute left-0 top-0 z-[5] h-full w-full transition-all duration-300 ease-out"
+									>
+										<p
+											class:translate-y-12={!blur0}
+											class:translate-y-0={blur0}
+											class:scale-95={!blur0}
+											class:scale-100={blur0}
+											class:opacity-0={!blur0}
+											class:opacity-100={blur0}
+											class="absolute bottom-5 left-5 w-[80%] text-background transition-all delay-200 duration-500 ease-out"
+										>
+											{r.full}
+										</p>
+									</div>
+									<div class="absolute left-0 top-0 h-full w-full object-cover">
+										<img src={r.img} class="h-full object-cover" />
+									</div>
+								{/if}
 							</Card.Content>
 						</Card.Root>
 					</div>
