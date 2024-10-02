@@ -9,6 +9,7 @@
 	import Separator from '$lib/components/ui/separator/separator.svelte';
 	import Countdown from '$lib/Countdown.svelte';
 	import { flyAndScale } from '$lib/utils';
+	import { goto } from '$app/navigation';
 	let email = '';
 
 	function validateEmail(email: string) {
@@ -245,7 +246,13 @@
 	>
 		Try the demo
 	</h1>
-	<Button variant="secondary" class="z-30">Demo</Button>
+	<Button
+		variant="secondary"
+		on:click={() => {
+			goto('/demo');
+		}}
+		class="z-30">Demo</Button
+	>
 	<img src="/heima.heic" class=" absolute bottom-0 right-[10%] h-60 w-32 opacity-80" />
 	<img src="/heima.heic" class=" absolute bottom-0 left-[30%] h-60 w-32 opacity-80" />
 	<img src="/heima.heic" class=" absolute bottom-0 left-[10%] h-60 w-32 opacity-80" />

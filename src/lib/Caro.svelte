@@ -1,6 +1,36 @@
 <script lang="ts">
 	import * as Card from '$lib/components/ui/card/index.js';
+	import * as Tooltip from '$lib/components/ui/tooltip/index.js';
+
+	import * as Dialog from '$lib/components/ui/Dialog/index.js';
 	import * as Carousel from '$lib/components/ui/carousel/index.js';
+	import { Button } from './components/ui/button';
+	import { Fullscreen } from 'lucide-svelte';
+	let blur1 = false;
+	let steps = [
+		{
+			title: 'Non-intrusive',
+			desc: 'Browse as you normally would',
+			full: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui amet repudiandae maxime vel doloribus explicabo asperiores, earum praesentium quod error est',
+			img: 'Tryon.svg'
+		},
+		{
+			title: 'Discovery',
+			desc: 'Get clothing recommendations',
+			full: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui amet repudiandae maxime vel doloribus explicabo asperiores, earum praesentium quod error est',
+			img: 'newima.png'
+		}
+		// {
+		// 	title: 'Modeling',
+		// 	desc: 'Pick through the array of clothing to try on',
+		// 	full: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui amet repudiandae maxime vel doloribus explicabo asperiores, earum praesentium quod error est'
+		// },
+		// {
+		// 	title: '',
+		// 	desc: '',
+		// 	full: ''
+		// }
+	];
 </script>
 
 <Carousel.Root
@@ -11,25 +41,60 @@
 >
 	<div>
 		<Carousel.Content class="gap-x-6 px-[10%] lg:px-32 xl:px-40">
-			{#each Array(5) as _, i (i)}
+			{#each steps as r, i (i)}
 				<Carousel.Item
 					class="xl:basis-3/8 basis-3/4 overflow-clip rounded-xl p-0 sm:basis-2/3 lg:basis-1/3"
 				>
 					<div>
 						<Card.Root>
 							<Card.Content
-								class="relative flex aspect-[8/13] h-full w-full flex-col items-start justify-start rounded-xl bg-primary p-0"
+								class="group relative flex aspect-[8/13] h-full w-full flex-col items-start justify-start rounded-xl bg-primary p-0"
 							>
-								<!-- <!-- <span class="text-3xl font-semibold">{i + 1}</span> -->
-								<!-- <video -->
-								<!-- 	muted -->
-								<!-- 	controls -->
-								<!-- 	class="h-full rounded-xl object-cover grayscale transition-all duration-500 hover:grayscale-0" -->
-								<!-- 	src="https://landing.stylar.com/MixNMatch%20v2.0%20compressed.mp4" -->
-
-								<hi class="absolute left-4 top-4 text-background"
-									>Title<br /><span class="text-2xl font-medium">Description</span></hi
+								<hi class="absolute left-4 top-4 z-10 text-background"
+									>{r.title}<br /><span class="text-2xl font-medium">{r.desc}</span></hi
 								>
+								<Button
+									on:click={() => {
+										blur1 = !blur1;
+									}}
+									class="absolute bottom-2 right-2 z-10 translate-y-16 scale-0 opacity-0 transition-all duration-100 group-hover:translate-y-0 group-hover:scale-100 group-hover:opacity-100"
+									size="icon"
+									variant="outline"
+								>
+									<Tooltip.Root>
+										<Tooltip.Trigger>
+											<Fullscreen class="size-4 text-muted-foreground" />
+										</Tooltip.Trigger>
+										<Tooltip.Content>
+											<p>View generation</p>
+										</Tooltip.Content>
+									</Tooltip.Root></Button
+								>
+								<div
+									class:backdrop-blur-lg={blur1}
+									class:bg-primary={blur1}
+									class:bg-opacity-60={blur1}
+									class:animate-in={blur1}
+									class:opacity-0={!blur1}
+									class:backdrop-blur-none={!blur1}
+									class="absolute left-0 top-0 z-[5] h-full w-full transition-all duration-300 ease-out"
+								>
+									<p
+										class:translate-y-12={!blur1}
+										class:translate-y-0={blur1}
+										class:scale-95={!blur1}
+										class:scale-100={blur1}
+										class:opacity-0={!blur1}
+										class:opacity-100={blur1}
+										class="absolute bottom-5 left-5 w-[80%] text-background transition-all delay-200 duration-500 ease-out"
+									>
+										Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui amet repudiandae
+										maxime vel doloribus explicabo asperiores, earum praesentium quod error est
+									</p>
+								</div>
+								<div class="absolute left-0 top-0 h-full w-full object-cover">
+									<img src={r.img} class="h-full object-cover" />
+								</div>
 							</Card.Content>
 						</Card.Root>
 					</div>
@@ -42,3 +107,6 @@
 		<Carousel.Next class="relative translate-x-0 translate-y-0" />
 	</div>
 </Carousel.Root>
+
+<style>
+</style>
