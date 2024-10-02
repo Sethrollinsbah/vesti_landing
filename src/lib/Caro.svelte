@@ -10,15 +10,21 @@
 		{
 			title: 'Non-intrusive',
 			desc: 'Browse as you normally would',
-			full: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui amet repudiandae maxime vel doloribus explicabo asperiores, earum praesentium quod error est',
-			img: 'Tryon.svg'
+			full: 'On known clothing sites, we ask your your browsers permission to allow us to view the clothing you may be interested in.',
+			img: 'newima.png'
 		},
 		{
-			title: 'Discovery',
-			desc: 'Get clothing recommendations',
-			full: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui amet repudiandae maxime vel doloribus explicabo asperiores, earum praesentium quod error est',
-			img: 'newima.png'
+			title: 'Try-on',
+			desc: 'See how that dress looks on you',
+			full: "Ready to see how a dress might look on you? Press the Try on button that popup next to the arment you're interested in.",
+			img: 'Tryon.svg'
 		}
+		// {
+		// 	title: 'Discovery',
+		// 	desc: 'Get clothing recommendations',
+		// 	full: '',
+		// 	img: 'Tryon.svg'
+		// }
 		// {
 		// 	title: 'Modeling',
 		// 	desc: 'Pick through the array of clothing to try on',
