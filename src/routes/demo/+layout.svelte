@@ -2,7 +2,6 @@
 	import { handleWsMessage } from '$lib/utils.ts';
 	import { Toaster } from 'svelte-sonner';
 	import { ws } from '$lib';
-	import '../app.css';
 	import ImageDialogItem from '$lib/components/ImageDialogItem.svelte';
 	import { selectedImage, isNightMode } from '$lib';
 	import { onDestroy, onMount } from 'svelte';
